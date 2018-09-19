@@ -14,6 +14,7 @@
 #endif
 #if !defined(IMGUI_DISABLE_INCLUDE_IMCONFIG_H) || defined(IMGUI_INCLUDE_IMCONFIG_H)
 #include "imconfig.h"
+#include "spectrum.h"
 #endif
 
 #include <float.h>                  // FLT_MAX
