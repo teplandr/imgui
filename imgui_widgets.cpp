@@ -4831,7 +4831,7 @@ bool ImGui::TreeNodeBehavior(ImGuiID id, ImGuiTreeNodeFlags flags, const char* l
         }
         else
         {
-            RenderTextClipped(text_pos, frame_bb.Max, label, label_end, &label_size);
+            RenderTextClipped(text_pos, frame_bb.Max, label, label_end, &label_size, ImVec2(0, 0), nullptr, Spectrum::GRAY50);
         }
     }
     else
