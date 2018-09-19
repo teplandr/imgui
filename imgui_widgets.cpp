@@ -908,7 +908,7 @@ bool ImGui::Checkbox(const char* label, bool* v)
         RenderFrame(check2_bb.Min, check2_bb.Max, (held && hovered) ? Spectrum::BLUE700 : hovered ? Spectrum::BLUE600 : Spectrum::BLUE500, false, 2);
         const float check_sz = ImMin(check2_bb.GetWidth(), check2_bb.GetHeight());
         const float pad = ImMax(1.0f, (float)(int)(check_sz / 3.0f));
-        RenderCheckMark(check_bb.Min + ImVec2(pad,pad), GetColorU32(ImGuiCol_CheckMark), check_bb.GetWidth() - pad*2.0f);
+        RenderCheckMark(check_bb.Min + ImVec2(pad,pad), Spectrum::GRAY50, check_bb.GetWidth() - pad*2.0f);
     } else {
         RenderFrameBorder(check2_bb.Min, check2_bb.Max, (held && hovered) ? Spectrum::GRAY800 : hovered ? Spectrum::GRAY700 : Spectrum::GRAY600, Spectrum::CHECKBOX_BORDER_SIZE, 2);
     }
@@ -916,7 +916,7 @@ bool ImGui::Checkbox(const char* label, bool* v)
     if (g.LogEnabled)
         LogRenderedText(&text_bb.Min, *v ? "[x]" : "[ ]");
     if (label_size.x > 0.0f)
-        RenderText(text_bb.Min, label);
+        RenderText(text_bb.Min, label, nullptr, true, hovered ? Spectrum::GRAY900 : Spectrum::GRAY800);
 
     return pressed;
 }
