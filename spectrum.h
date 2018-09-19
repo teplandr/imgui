@@ -16,10 +16,15 @@ and imgui_widgets.cpp directly, and to make that work, we need
 to define the theme here, in advance. 
 */
 
-//#define SPECTRUM_USE_LIGHT_THEME
-#define SPECTRUM_USE_DARK_THEME
+#define SPECTRUM_USE_LIGHT_THEME
+//#define SPECTRUM_USE_DARK_THEME
 
 namespace Spectrum {
+    // a list of changes that I had to introduce to change the look
+    // of the widgets. Collected here as constexpr rather than being
+    // magic numbers spread around imgui.cpp and imgui_widgets.cpp.
+    constexpr float CHECKBOX_BORDER_SIZE = 2.0f;
+
     namespace {
         constexpr unsigned int Color(unsigned int c) {
             // add alpha.

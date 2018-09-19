@@ -901,14 +901,16 @@ bool ImGui::Checkbox(const char* label, bool* v)
     }
 
     RenderNavHighlight(total_bb, id);
+    const ImVec2 offset(style.FramePadding.y, style.FramePadding.y);
+    const ImRect check2_bb(check_bb.Min + offset, check_bb.Max - offset);
     if (*v)
     {
-        RenderFrame(check_bb.Min, check_bb.Max, (held && hovered) ? Spectrum::BLUE700 : hovered ? Spectrum::BLUE600 : Spectrum::BLUE500, false, 2);
-        const float check_sz = ImMin(check_bb.GetWidth(), check_bb.GetHeight());
-        const float pad = ImMax(1.0f, (float)(int)(check_sz / 6.0f));
+        RenderFrame(check2_bb.Min, check2_bb.Max, (held && hovered) ? Spectrum::BLUE700 : hovered ? Spectrum::BLUE600 : Spectrum::BLUE500, false, 2);
+        const float check_sz = ImMin(check2_bb.GetWidth(), check2_bb.GetHeight());
+        const float pad = ImMax(1.0f, (float)(int)(check_sz / 3.0f));
         RenderCheckMark(check_bb.Min + ImVec2(pad,pad), GetColorU32(ImGuiCol_CheckMark), check_bb.GetWidth() - pad*2.0f);
     } else {
-        RenderFrameBorder(check_bb.Min, check_bb.Max, (held && hovered) ? Spectrum::GRAY800 : hovered ? Spectrum::GRAY700 : Spectrum::GRAY600, 2.0f, 2);
+        RenderFrameBorder(check2_bb.Min, check2_bb.Max, (held && hovered) ? Spectrum::GRAY800 : hovered ? Spectrum::GRAY700 : Spectrum::GRAY600, Spectrum::CHECKBOX_BORDER_SIZE, 2);
     }
 
     if (g.LogEnabled)
