@@ -974,24 +974,21 @@ bool ImGui::RadioButton(const char* label, bool active)
         MarkItemEdited(id);
 
     RenderNavHighlight(total_bb, id);
-    window->DrawList->AddCircleFilled(center, radius, GetColorU32((held && hovered) ? ImGuiCol_FrameBgActive : hovered ? ImGuiCol_FrameBgHovered : ImGuiCol_FrameBg), 16);
     if (active)
     {
-        const float check_sz = ImMin(check_bb.GetWidth(), check_bb.GetHeight());
-        const float pad = ImMax(1.0f, (float)(int)(check_sz / 6.0f));
-        window->DrawList->AddCircleFilled(center, radius-pad, GetColorU32(ImGuiCol_CheckMark), 16);
+        window->DrawList->AddCircleFilled(center, radius * 0.8f, ((held && hovered) ? Spectrum::BLUE700 : hovered ? Spectrum::BLUE600 : Spectrum::BLUE500), 16);
+        window->DrawList->AddCircleFilled(center, radius * 0.25f, Spectrum::GRAY75, 16);
     }
-
-    if (style.FrameBorderSize > 0.0f)
+    else 
     {
-        window->DrawList->AddCircle(center+ImVec2(1,1), radius, GetColorU32(ImGuiCol_BorderShadow), 16, style.FrameBorderSize);
-        window->DrawList->AddCircle(center, radius, GetColorU32(ImGuiCol_Border), 16, style.FrameBorderSize);
+        window->DrawList->AddCircleFilled(center, radius * 0.8f, ((held && hovered) ? Spectrum::GRAY800 : hovered ? Spectrum::GRAY700: Spectrum::GRAY600), 16);
+        window->DrawList->AddCircleFilled(center, radius * 0.6f, Spectrum::GRAY75, 16);
     }
 
     if (g.LogEnabled)
         LogRenderedText(&text_bb.Min, active ? "(x)" : "( )");
     if (label_size.x > 0.0f)
-        RenderText(text_bb.Min, label);
+        RenderText(text_bb.Min, label, nullptr, true, hovered ? Spectrum::GRAY900 : Spectrum::GRAY800);
 
     return pressed;
 }
