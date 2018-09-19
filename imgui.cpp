@@ -998,7 +998,7 @@ ImGuiStyle::ImGuiStyle()
     ScrollbarSize           = 16.0f;            // Width of the vertical scrollbar, Height of the horizontal scrollbar
     ScrollbarRounding       = 9.0f;             // Radius of grab corners rounding for scrollbar
     GrabMinSize             = 10.0f;            // Minimum width/height of a grab box for slider/scrollbar
-    GrabRounding            = 0.0f;             // Radius of grabs corners rounding. Set to 0.0f to have rectangular slider grabs.
+    GrabRounding            = 4.0f;             // Radius of grabs corners rounding. Set to 0.0f to have rectangular slider grabs.
     ButtonTextAlign         = ImVec2(0.5f,0.5f);// Alignment of button text when button is larger than text.
     DisplayWindowPadding    = ImVec2(20,20);    // Window position are clamped to be visible within the display area by at least this amount. Only applies to regular windows.
     DisplaySafeAreaPadding  = ImVec2(3,3);      // If you cannot see the edge of your screen (e.g. on a TV) increase the safe area padding. Covers popups/tooltips as well regular windows.
@@ -2183,6 +2183,17 @@ void ImGui::RenderFrame(ImVec2 p_min, ImVec2 p_max, ImU32 fill_col, bool border,
     {
         window->DrawList->AddRect(p_min+ImVec2(1,1), p_max+ImVec2(1,1), GetColorU32(ImGuiCol_BorderShadow), rounding, ImDrawCornerFlags_All, border_size);
         window->DrawList->AddRect(p_min, p_max, GetColorU32(ImGuiCol_Border), rounding, ImDrawCornerFlags_All, border_size);
+    }
+}
+
+void ImGui::RenderFrame(ImVec2 p_min, ImVec2 p_max, ImU32 fill_col, ImU32 border_col, float rounding) {
+    ImGuiContext& g = *GImGui;
+    ImGuiWindow* window = g.CurrentWindow;
+    window->DrawList->AddRectFilled(p_min, p_max, fill_col, rounding);
+    const float border_size = g.Style.FrameBorderSize;
+    if (border_size > 0.0f) {
+        window->DrawList->AddRect(p_min + ImVec2(1, 1), p_max + ImVec2(1, 1), GetColorU32(ImGuiCol_BorderShadow), rounding, ImDrawCornerFlags_All, border_size);
+        window->DrawList->AddRect(p_min, p_max, border_col, rounding, ImDrawCornerFlags_All, border_size);
     }
 }
 
