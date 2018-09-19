@@ -1,0 +1,16 @@
+## Controls
+* Button - matches Spectrum's Action button. Other buttons to be added (call to action, primary).
+* Checkbox - ok
+* Radio - ok
+* Combo - not adapted. Need work on Selectables and overall look.
+* Input - more or less ok
+* Drag and slider controls do not match Spectrum, but would be a pain to do since each is coded individually (int, float, etc). 
+* Scrollbar - colors ok, Spectrum's bar is smaller when not active.
+* Resize control - Spectrum doesn't have one (?), matches scrollbar colors.
+* Collapsing Header - Spectrum doesn't have this, but it is a common feature of ImGui. Implemented, inspired by Spectrum's Call-To-Action button. 
+
+
+## Internal Changes
+* Added spectrum.h with spectrum colors under `namespace Spectrum`.
+* Added RenderFrameBorder that takes border color and size
+* Added color parameter to RenderText, RenderTextWrapped, RenderTextClipped
