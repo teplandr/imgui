@@ -2198,6 +2198,16 @@ void ImGui::RenderFrameBorder(ImVec2 p_min, ImVec2 p_max, float rounding)
     }
 }
 
+void ImGui::RenderFrameBorder(ImVec2 p_min, ImVec2 p_max, ImU32 border_col, float border_size, float rounding)
+{
+    ImGuiContext& g = *GImGui;
+    ImGuiWindow* window = g.CurrentWindow;
+    if (border_size > 0.0f) {
+        window->DrawList->AddRect(p_min + ImVec2(1, 1), p_max + ImVec2(1, 1), GetColorU32(ImGuiCol_BorderShadow), rounding, ImDrawCornerFlags_All, border_size);
+        window->DrawList->AddRect(p_min, p_max, border_col, rounding, ImDrawCornerFlags_All, border_size);
+    }
+}
+
 // Render an arrow aimed to be aligned with text (p_min is a position in the same space text would be positioned). To e.g. denote expanded/collapsed state
 void ImGui::RenderArrow(ImVec2 p_min, ImGuiDir dir, float scale)
 {
