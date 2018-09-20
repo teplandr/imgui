@@ -17,7 +17,7 @@ This repository has exactly the same API as the original ImGui. You should be ab
 To be added. For an introduction please read ImGui's README, and feel free to contact me.
 
 ### Using Spectrum in your code
-Make sure you are using the default theme by calling `ImGui::StyleColorsClassic();` in your application. 
+Make sure you are using the default theme by calling `ImGui::StyleColorsClassic();` in your application. You can change from Light to Dark theme, check `spectrum.h`.
 
 You can add the AdobeClean font that you can [download here](http://spectrum.corp.adobe.com/fonts.html) with the following code:
 ```
@@ -26,8 +26,7 @@ io.Fonts->AddFontDefault();
 ImFont* font = io.Fonts->AddFontFromFileTTF("../AdobeClean-Regular.ttf", 16.0f);
 if (font) io.FontDefault = font;
 ```
-
-You can change from Light to Dark theme, check `spectrum.h`.
+As a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/type/font-licensing/restricted-fonts.html).
 
 
 ## Compiler
