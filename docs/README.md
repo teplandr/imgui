@@ -1,3 +1,5 @@
+for information on Spectrum-ImGui check [Spectrum.md](https://git.corp.adobe.com/gori/imgui/blob/master/docs/Spectrum.md). Original ImGui readme follows.
+
 dear imgui,
 =====
 [![Build Status](https://travis-ci.org/ocornut/imgui.svg?branch=master)](https://travis-ci.org/ocornut/imgui)
