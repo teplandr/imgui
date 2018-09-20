@@ -3,7 +3,9 @@ The goal of this project is to provide the ease of use and quick C++ development
 
 This project aims at not changing the ImGui API at all, so you could swap between ImGui and ImGui-Spectrum without changing your code. 
 
-ImGui-Spectrum might also implement some additional features and controls that are not present in the original ImGui, although using those is absolutely not required.
+ImGui-Spectrum is currently usable, but adaptation of Spectrum widgets is not fully complete. It looks like this:
+
+![example](https://git.corp.adobe.com/storage/user/21980/files/4a645748-bc24-11e8-85be-70a4dfe3d4ca)
 
 ## Using Imgui-Spectrum
 
