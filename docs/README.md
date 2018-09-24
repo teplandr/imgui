@@ -1,4 +1,4 @@
-for information on Spectrum-ImGui check [Spectrum.md](https://git.corp.adobe.com/gori/imgui/blob/master/docs/Spectrum.md). Original ImGui readme follows.
+for information on ImGui-Spectrum check [Spectrum.md](https://git.corp.adobe.com/gori/imgui/blob/master/docs/Spectrum.md). Original ImGui readme follows.
 
 dear imgui,
 =====
