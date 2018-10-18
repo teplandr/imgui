@@ -28,6 +28,8 @@ io.Fonts->AddFontDefault();
 ImFont* font = io.Fonts->AddFontFromFileTTF("../AdobeClean-Regular.ttf", 16.0f);
 if (font) io.FontDefault = font;
 ```
+Note that unfortunately `AddFontFromFileTTF(..)` will crash your code if it cannot find the font file.
+
 As a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/type/font-licensing/restricted-fonts.html).
 
 
