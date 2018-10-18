@@ -32,11 +32,6 @@ Note that unfortunately `AddFontFromFileTTF(..)` will crash your code if it cann
 
 As a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/type/font-licensing/restricted-fonts.html).
 
-
-## Compiler
-ImGui should be compatible with a wide array of C++ compilers. ImGui-Spectrum is using the C++11 feature `constexpr` in `spectrum.h`. If you cannot use C++11 you can remove the `constexpr` keywords from there.
-
-
 ## Controls
 * Button - matches Spectrum's Action button. Other buttons to be added (call to action, primary).
 * Checkbox - ok
