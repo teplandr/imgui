@@ -1349,7 +1349,9 @@ bool ImGui::BeginCombo(const char* label, const char* preview_value, ImGuiComboF
     // Horizontally align ourselves with the framed text
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_Popup | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings;
     PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(style.FramePadding.x, style.WindowPadding.y));
+    PushStyleVar(ImGuiStyleVar_PopupRounding, 4.0f);
     bool ret = Begin(name, NULL, window_flags);
+    PopStyleVar();
     PopStyleVar();
     if (!ret)
     {
@@ -5035,11 +5037,15 @@ bool ImGui::Selectable(const char* label, bool selected, ImGuiSelectableFlags fl
         MarkItemEdited(id);
 
     // Render
-    if (hovered || selected)
-    {
-        const ImU32 col = GetColorU32((held && hovered) ? ImGuiCol_HeaderActive : hovered ? ImGuiCol_HeaderHovered : ImGuiCol_Header);
-        RenderFrame(bb.Min, bb.Max, col, false, 0.0f);
+    if (hovered) {
+        RenderFrame(bb.Min, bb.Max, Spectrum::color_alpha(0x0A, Spectrum::Static::GRAY900), false, 0.0f);
         RenderNavHighlight(bb, id, ImGuiNavHighlightFlags_TypeThin | ImGuiNavHighlightFlags_NoRounding);
+    }
+    if (selected) {
+        // add a checkmark and text is blue
+        float height = bb.GetHeight();
+        RenderCheckMark(ImVec2(bb.Max.x - height, bb.GetCenter().y - height / 2), Spectrum::BLUE600, height / 3.0f * 2.0f);
+        PushStyleColor(ImGuiCol_Text, Spectrum::BLUE600);
     }
 
     if ((flags & ImGuiSelectableFlags_SpanAllColumns) && window->DC.ColumnsSet)
@@ -5051,6 +5057,7 @@ bool ImGui::Selectable(const char* label, bool selected, ImGuiSelectableFlags fl
     if (flags & ImGuiSelectableFlags_Disabled) PushStyleColor(ImGuiCol_Text, g.Style.Colors[ImGuiCol_TextDisabled]);
     RenderTextClipped(bb_inner.Min, bb.Max, label, NULL, &label_size, ImVec2(0.0f,0.0f));
     if (flags & ImGuiSelectableFlags_Disabled) PopStyleColor();
+    if (selected) PopStyleColor();
 
     // Automatically close popups
     if (pressed && (window->Flags & ImGuiWindowFlags_Popup) && !(flags & ImGuiSelectableFlags_DontClosePopups) && !(window->DC.ItemFlags & ImGuiItemFlags_SelectableDontClosePopup))

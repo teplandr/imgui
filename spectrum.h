@@ -16,6 +16,7 @@ and imgui_widgets.cpp directly, and to make that work, we need
 to define the theme here, in advance. 
 */
 
+/// Pick one
 #define SPECTRUM_USE_LIGHT_THEME
 //#define SPECTRUM_USE_DARK_THEME
 
@@ -42,18 +43,22 @@ namespace Spectrum {
     }
     // all colors are from http://spectrum.corp.adobe.com/color.html
 
+    inline unsigned int color_alpha(unsigned int alpha, unsigned int c) {
+        return ((alpha & 0xFF) << 24) | (c & 0x00FFFFFF);
+    }
+
     namespace Static { // static colors
         constexpr unsigned int NONE = 0x00000000; // transparent
         constexpr unsigned int WHITE = Color(0xFFFFFF);
         constexpr unsigned int BLACK = Color(0x000000);
-        constexpr unsigned int GREY200 = Color(0xF4F4F4);
-        constexpr unsigned int GREY300 = Color(0xEAEAEA);
-        constexpr unsigned int GREY400 = Color(0xD3D3D3);
-        constexpr unsigned int GREY500 = Color(0xBCBCBC);
-        constexpr unsigned int GREY600 = Color(0x959595);
-        constexpr unsigned int GREY700 = Color(0x767676);
-        constexpr unsigned int GREY800 = Color(0x505050);
-        constexpr unsigned int GREY900 = Color(0x323232);
+        constexpr unsigned int GRAY200 = Color(0xF4F4F4);
+        constexpr unsigned int GRAY300 = Color(0xEAEAEA);
+        constexpr unsigned int GRAY400 = Color(0xD3D3D3);
+        constexpr unsigned int GRAY500 = Color(0xBCBCBC);
+        constexpr unsigned int GRAY600 = Color(0x959595);
+        constexpr unsigned int GRAY700 = Color(0x767676);
+        constexpr unsigned int GRAY800 = Color(0x505050);
+        constexpr unsigned int GRAY900 = Color(0x323232);
         constexpr unsigned int BLUE400 = Color(0x378EF0);
         constexpr unsigned int BLUE500 = Color(0x2680EB);
         constexpr unsigned int BLUE600 = Color(0x1473E6);
