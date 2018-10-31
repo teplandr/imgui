@@ -28,12 +28,11 @@ io.Fonts->AddFontDefault();
 ImFont* font = io.Fonts->AddFontFromFileTTF("../AdobeClean-Regular.ttf", 16.0f);
 if (font) io.FontDefault = font;
 ```
+Note that unfortunately `AddFontFromFileTTF(..)` will crash your code if it cannot find the font file.
+
+You can also embed the font in your build, [read here](../misc/fonts/README.txt) for more info.
+
 As a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/type/font-licensing/restricted-fonts.html).
-
-
-## Compiler
-ImGui should be compatible with a wide array of C++ compilers. ImGui-Spectrum is using the C++11 feature `constexpr` in `spectrum.h`. If you cannot use C++11 you can remove the `constexpr` keywords from there.
-
 
 ## Controls
 * Button - matches Spectrum's Action button. Other buttons to be added (call to action, primary).
