@@ -38,7 +38,7 @@ As a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/
 * Button - matches Spectrum's Action button. Other buttons to be added (call to action, primary).
 * Checkbox - ok
 * Radio - ok
-* Combo - not adapted. Need work on Selectables and overall look.
+* Combo - ok, but not exact match. ImGui's Combo is a mix of Spectrum's Combo and Dropdown controls. 
 * Input - more or less ok
 * Drag and slider controls do not match Spectrum, but would be a pain to do since each is coded individually (int, float, etc). 
 * Scrollbar - colors ok, Spectrum's bar is smaller when not active.
