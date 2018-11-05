@@ -30,7 +30,7 @@ if (font) io.FontDefault = font;
 ```
 Note that unfortunately `AddFontFromFileTTF(..)` will crash your code if it cannot find the font file.
 
-You can also embed the font in your build, [read here](../misc/fonts/README.txt) for more info.
+You can also embed the font in your build, check [here](https://git.corp.adobe.com/gori/adobe-fonts-for-imgui) and [here](../misc/fonts/README.txt) for more info.
 
 As a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/type/font-licensing/restricted-fonts.html).
 
