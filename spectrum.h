@@ -11,9 +11,9 @@ One big difference is that ImGui communicates widget activity
 (hover, pressed) with their background, while spectrum uses a mix
 of background and border, with border being the most common choice.
 
-Because of this, we reference spectrum colors from imgui.cpp
-and imgui_widgets.cpp directly, and to make that work, we need
-to define the theme here, in advance. 
+Because of this, we reference extra colors in spectrum from 
+imgui.cpp and imgui_widgets.cpp directly, and to make that work, 
+we need to have them defined at here at compile time. 
 */
 
 /// Pick one
@@ -26,7 +26,7 @@ namespace Spectrum {
     // magic numbers spread around imgui.cpp and imgui_widgets.cpp.
     const float CHECKBOX_BORDER_SIZE = 2.0f;
 
-    namespace {
+    namespace { // Unnamed namespace, since we only use this here. 
         const unsigned int Color(unsigned int c) {
             // add alpha.
             // also swap red and blue channel for some reason.
@@ -199,4 +199,8 @@ namespace Spectrum {
     const unsigned int PURPLE600 = Color(0xA873E9);
     const unsigned int PURPLE700 = Color(0xB483F0);
 #endif
+
+    void initialize_style() {
+    	
+    }
 }
