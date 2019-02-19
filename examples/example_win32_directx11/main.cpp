@@ -127,13 +127,10 @@ int main(int, char**)
     ImGui_ImplWin32_Init(hwnd);
     ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
 
-<<<<<<< HEAD
     // Setup style
     //ImGui::StyleColorsDark();
-    ImGui::StyleColorsClassic();
+    ImGui::Spectrum::StyleColorsSpectrum();
 
-=======
->>>>>>> 3c15dffc944419eb4bb17984548468270ca90486
     // Load Fonts
     // - If no fonts are loaded, dear imgui will use the default font. You can also load multiple fonts and use ImGui::PushFont()/PopFont() to select them.
     // - AddFontFromFileTTF() will return the ImFont* so you can store it if you need to select the font among multiple.
