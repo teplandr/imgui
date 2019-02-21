@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 for information on ImGui-Spectrum check [Spectrum.md](Spectrum.md). Original ImGui readme follows.
 
-dear imgui,
-=======
 dear imgui
->>>>>>> 3c15dffc944419eb4bb17984548468270ca90486
 =====
 [![Build Status](https://travis-ci.org/ocornut/imgui.svg?branch=master)](https://travis-ci.org/ocornut/imgui)
 [![Coverity Status](https://scan.coverity.com/projects/4720/badge.svg)](https://scan.coverity.com/projects/4720)
