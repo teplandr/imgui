@@ -68,7 +68,7 @@ int main(int, char**)
     // - The fonts will be rasterized at a given size (w/ oversampling) and stored into a texture when calling ImFontAtlas::Build()/GetTexDataAsXXXX(), which ImGui_ImplXXXX_NewFrame below will call.
     // - Read 'misc/fonts/README.txt' for more instructions and details.
     // - Remember that in C/C++ if you want to include a backslash \ in a string literal you need to write a double backslash \\ !
-    io.Fonts->AddFontDefault();
+    //io.Fonts->AddFontDefault();
     //ImFont* font = io.Fonts->AddFontFromFileTTF("../../misc/fonts/AdobeClean/AdobeClean-Regular.ttf", 16.0f);
     //if (font) io.FontDefault = font;
 

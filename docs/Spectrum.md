@@ -10,29 +10,30 @@ ImGui-Spectrum is currently usable, but adaptation of Spectrum widgets is not fu
 ## Using Imgui-Spectrum
 
 ### Moving from original ImGui to ImGui-Spectrum
-This repository has exactly the same API as the original ImGui. You should be able to just swap to this without any issues. Keep in mind ImGui changed a bit in the last releases, and you may have to update accordingly.
+This repository has exactly the same API as the original ImGui. You should be able to just swap to this without any issues. 
 
 * If you just copied ImGui source files to your project, you can overwrite them with the files from this repository. Make sure to include `spectrum.h` and `spectrum.cpp`.
 * If you are using ImGui as a submodule, you can change the remote url in your `.gitmodules` file and then run `git submodule sync`.
 
 ### Getting started with ImGui or moving from another GUI library
-To be added. For an introduction please read ImGui's README, and feel free to contact me at `gori@adobe.com`.
+Please read ImGui's [README.md](./README.md).
 
 ### Using Spectrum in your code
 Make sure you call `ImGui::Spectrum::StyleColorsSpectrum();` at the start of your application, after ImGui has been initialized. You can pick between Light and Dark theme, check `spectrum.h`.
 
-You can add the AdobeClean font that you can [download here](http://spectrum.corp.adobe.com/fonts.html) with the following code:
+Note that calling `ImGui::Spectrum::StyleColorsSpectrum();` also sets the font to [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro). If you have access to Adobe internal resources, you may want to swap it to AdobeClean-Regular (download [here](http://spectrum.corp.adobe.com/fonts.html)). 
+
+You can either use the following code, or embed the font in your build. To embed the font, check [here](https://git.corp.adobe.com/gori/adobe-fonts-for-imgui) and [here](../misc/fonts/README.txt) for more info.
+
 ```
 ImGuiIO& io = ImGui::GetIO();
 io.Fonts->AddFontDefault();
 ImFont* font = io.Fonts->AddFontFromFileTTF("../AdobeClean-Regular.ttf", 16.0f);
 if (font) io.FontDefault = font;
 ```
-Note that `AddFontFromFileTTF(..)` requires the font file to exist at the correct path.
-
-You can also embed the font in your build, check [here](https://git.corp.adobe.com/gori/adobe-fonts-for-imgui) and [here](../misc/fonts/README.txt) for more info.
 
 As a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/type/font-licensing/restricted-fonts.html).
+
 
 ## Controls
 * Button - matches Spectrum's Action button. Other buttons to be added (call to action, primary).
@@ -65,7 +66,8 @@ In general, the plan is to *not* add the full range of Spectrum controls and the
 
 The above functions are likely to cause merge issue in the future if ImGui's author decides to refactor them as planned.
 
-### How to update 
-After ImGui releases, pull changes with `git pull ocornut-origin master`. Merge eventual conflicts, then `git push` as usual.
-
-If you don't yet have the original remote in your local copy, you can add it with `git remote add ocornut-origin https://github.com/ocornut/imgui.git`
+### How to update ater ImGui releases:
+1. If you don't yet have the original remote in your local copy, you can add it with `git remote add ocornut-origin https://github.com/ocornut/imgui.git`
+2. pull changes with `git pull ocornut-origin master` 
+3. Merge eventual conflicts
+4. Commit and push your changes as usual (and/or make a pull request!). 
