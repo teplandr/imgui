@@ -1,5 +1,5 @@
 # ImGui-Spectrum
-The goal of this project is to provide the ease of use and quick C++ development of the ImGui library, while also embracing Adobe's Spectrum guidelines, thus giving a similar look and feel to Adobe's flagship products. 
+The goal of this project is to provide the ease of use and quick C++ development of the ImGui library, while also embracing Adobe's [Spectrum](https://github.com/adobe/spectrum-css) guidelines, thus giving a similar look and feel to Adobe's flagship products. 
 
 This project aims at not changing the ImGui API at all, so you could swap between ImGui and ImGui-Spectrum without changing your code. 
 
