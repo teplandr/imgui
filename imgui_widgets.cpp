@@ -5408,7 +5408,9 @@ bool ImGui::Selectable(const char* label, bool selected, ImGuiSelectableFlags fl
     if (selected) {
         // add a checkmark and text is blue
         float height = bb.GetHeight();
-        RenderCheckMark(ImVec2(bb.Max.x - height, bb.GetCenter().y - height / 2), Spectrum::BLUE600, height / 3.0f * 2.0f);
+        if (!window->DC.MenuBarAppending) { // we use this to check if we are drawing menubar items. Menubar uses selectables, but we don't want a checkmark on those. 
+            RenderCheckMark(ImVec2(bb.Max.x - height, bb.GetCenter().y - height / 2), Spectrum::BLUE600, height / 3.0f * 2.0f);
+        }
         PushStyleColor(ImGuiCol_Text, Spectrum::BLUE600);
     }
 
