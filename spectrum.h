@@ -20,10 +20,11 @@ we need to have them defined at here at compile time.
 
 namespace ImGui {
     namespace Spectrum {
-        // a list of changes that I had to introduce to change the look
-        // of the widgets. Collected here as const rather than being
-        // magic numbers spread around imgui.cpp and imgui_widgets.cpp.
+        // a list of changes introduced to change the look of the widgets. 
+        // Collected here as const rather than being magic numbers spread 
+        // around imgui.cpp and imgui_widgets.cpp.
         const float CHECKBOX_BORDER_SIZE = 2.0f;
+        const float CHECKBOX_ROUNDING = 2.0f;
 
         void StyleColorsSpectrum();
 
