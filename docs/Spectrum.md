@@ -89,8 +89,20 @@ git merge v1.xx
 Using the `docking` branch in the example here. We need to checkout the local `docking` branch, then pull changes from imgui. Those will contain the release, but not the ImGui-Spectrum merge, so then we merge master into the branch again. 
 ```
 git checkout docking
-git merge ocornut docking
+git merge ocornut/docking
 git merge master
+```
+
+Note that this might cause merge conflicts *again*, so you may want to just reset the branch entirely:
+```
+git checkout master
+
+git branch -D docking
+git push adobe --delete docking
+
+git checkout -b docking
+git merge ocornut/docking
+git push --set-upstream adobe docking
 ```
 
 5. Commit and push your changes as usual (and/or make a pull request!). 
