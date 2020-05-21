@@ -14,9 +14,11 @@ imgui.cpp and imgui_widgets.cpp directly, and to make that work,
 we need to have them defined at here at compile time. 
 */
 
-/// Pick one
+/// Pick one, or have one defined already.
+#if !defined(SPECTRUM_USE_LIGHT_THEME) && !defined(SPECTRUM_USE_DARK_THEME)
 #define SPECTRUM_USE_LIGHT_THEME
 //#define SPECTRUM_USE_DARK_THEME
+#endif
 
 namespace ImGui {
     namespace Spectrum {
