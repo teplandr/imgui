@@ -31,7 +31,7 @@
     <ClCompile Include="..\..\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\spectrum.cpp">
+    <ClCompile Include="..\..\imgui_spectrum.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,7 +51,7 @@
     <ClInclude Include="..\imgui_impl_dx9.h">
       <Filter>sources</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\spectrum.h">
+    <ClInclude Include="..\..\imgui_spectrum.h">
       <Filter>imgui</Filter>
     </ClInclude>
   </ItemGroup>

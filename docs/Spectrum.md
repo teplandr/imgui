@@ -12,7 +12,7 @@ ImGui-Spectrum is currently usable, but adaptation of Spectrum widgets is not fu
 ### Moving from original ImGui to ImGui-Spectrum
 This repository has exactly the same API as the original ImGui. You should be able to just swap to this without any issues. 
 
-* If you just copied ImGui source files to your project, you can overwrite them with the files from this repository. Make sure to include `spectrum.h` and `spectrum.cpp`.
+* If you just copied ImGui source files to your project, you can overwrite them with the files from this repository. Make sure to include `imgui_spectrum.h` and `imgui_spectrum.cpp`.
 * If you are using ImGui as a submodule, you can change the remote url in your `.gitmodules` file and then run `git submodule sync`.
 
 ### Getting started with ImGui or moving from another GUI library
@@ -21,19 +21,7 @@ Please read ImGui's [README.md](./README.md).
 ### Using Spectrum in your code
 Make sure you call `ImGui::Spectrum::StyleColorsSpectrum();` at the start of your application, after ImGui has been initialized. You can pick between Light and Dark theme, check `spectrum.h`.
 
-Optionally, you can call `ImGui::Spectrum::LoadFont(size)` to load [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro). If you have access to it, you may want to swap it to AdobeClean-Regular (download [here](http://spectrum.corp.adobe.com/fonts.html)). 
-
-You can either use the following code, or embed the font in your build. To embed the font, check [here](https://git.corp.adobe.com/gori/adobe-fonts-for-imgui) and [here](../misc/fonts/README.txt) for more info.
-
-```
-ImGuiIO& io = ImGui::GetIO();
-io.Fonts->AddFontDefault();
-ImFont* font = io.Fonts->AddFontFromFileTTF("../AdobeClean-Regular.ttf", 16.0f);
-if (font) io.FontDefault = font;
-```
-
-As a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/type/font-licensing/restricted-fonts.html).
-
+Optionally, you can call `ImGui::Spectrum::LoadFont(size)` to load [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro). If you have access to it, you may want to swap it to AdobeClean-Regular. But as a reminder, AdobeClean is a [restricted font](https://www.adobe.com/products/type/font-licensing/restricted-fonts.html).
 
 ## Controls
 * Button - matches Spectrum's Action button. Other buttons to be added (call to action, primary).
@@ -93,16 +81,13 @@ git merge ocornut/docking
 git merge master
 ```
 
-Note that this might cause merge conflicts *again*, so you may want to just reset the branch entirely:
+Note that this might cause merge conflicts *again*, so you may want to just create a new branch:
 ```
 git checkout master
 
-git branch -D docking
-git push adobe --delete docking
-
-git checkout -b docking
+git checkout -b docking_v1.xx
 git merge ocornut/docking
-git push --set-upstream adobe docking
+git push --set-upstream adobe docking_v1.xx
 ```
 
 5. Commit and push your changes as usual (and/or make a pull request!). 
