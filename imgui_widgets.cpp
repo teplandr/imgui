@@ -33,7 +33,7 @@ Index of this file:
 #endif
 
 #include "imgui.h"
-#include "spectrum.h"
+#include "imgui_spectrum.h"
 
 #ifndef IMGUI_DISABLE
 
