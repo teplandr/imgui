@@ -6063,13 +6063,13 @@ bool ImGui::Selectable(const char* label, bool selected, ImGuiSelectableFlags fl
     if (window->DC.IsComboPopup) { // ImGui-Spectrum: change Selectable rendering for ComboBox and ListBox
 
         if (hovered) {
-            RenderFrame(bb_enlarged.Min, bb_enlarged.Max, Spectrum::color_alpha(0x0A, Spectrum::Static::GRAY900), false, 0.0f);
-            RenderNavHighlight(bb_enlarged, id, ImGuiNavHighlightFlags_TypeThin | ImGuiNavHighlightFlags_NoRounding);
+            RenderFrame(bb.Min, bb.Max, Spectrum::color_alpha(0x0A, Spectrum::Static::GRAY900), false, 0.0f);
+            RenderNavHighlight(bb, id, ImGuiNavHighlightFlags_TypeThin | ImGuiNavHighlightFlags_NoRounding);
         }
 
         if (selected) { // add a checkmark and text is blue
-            float height = bb_enlarged.GetHeight();
-            RenderCheckMark(window->DrawList, ImVec2(bb_enlarged.Max.x - height, bb_enlarged.GetCenter().y - height / 2),
+            float height = bb.GetHeight();
+            RenderCheckMark(window->DrawList, ImVec2(bb.Max.x - height, bb.GetCenter().y - height / 2),
                 Spectrum::BLUE600, height / 3.0f * 2.0f);
             PushStyleColor(ImGuiCol_Text, Spectrum::BLUE600);
         }

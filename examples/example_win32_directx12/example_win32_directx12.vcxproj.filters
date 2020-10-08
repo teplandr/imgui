@@ -47,7 +47,7 @@
     <ClCompile Include="..\..\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\spectrum.cpp">
+    <ClCompile Include="..\..\imgui_spectrum.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
   </ItemGroup>
