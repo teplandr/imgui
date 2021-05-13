@@ -25,6 +25,7 @@ add_library(imgui
     "${imgui_SOURCE_DIR}/misc/cpp/imgui_stdlib.h"
     "${imgui_SOURCE_DIR}/misc/cpp/imgui_stdlib.cpp"
 )
+add_library(imgui::imgui ALIAS imgui)
 
 if(IMGUI_USE_DARK_THEME)
     target_compile_definitions(imgui PUBLIC SPECTRUM_USE_DARK_THEME)
