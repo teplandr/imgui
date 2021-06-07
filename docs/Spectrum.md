@@ -74,14 +74,11 @@ git merge v1.xx
 3. Merge eventual conflicts
 
 4. Checkout and merge other branches. 
-Using the `docking` branch in the example here. We need to checkout the local `docking` branch, then pull changes from imgui. Those will contain the release, but not the ImGui-Spectrum merge, so then we merge master into the branch again. 
-```
-git checkout docking
-git merge ocornut/docking
-git merge master
-```
 
-Note that this might cause merge conflicts *again*, so you may want to just create a new branch:
+Note: you could checkout the existing branch in ImGui-Spectrum and merge the remote one, however the remote branch will not contain ImGui-Spectrum changes, and it will likely cause merge conflicts *again*, so it's easier to branch off ImGui-Spectrum master and merge the remote branch. 
+
+For example, for the `docking` branch:
+
 ```
 git checkout master
 
@@ -90,4 +87,4 @@ git merge ocornut/docking
 git push --set-upstream adobe docking_v1.xx
 ```
 
-5. Commit and push your changes as usual (and/or make a pull request!). 
+1. Commit and push your changes as usual (and/or make a pull request!). 
