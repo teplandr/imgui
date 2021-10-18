@@ -55,16 +55,7 @@ if(NOT TARGET glfw)
     FetchContent_MakeAvailable(glfw)
 endif()
 
-if(NOT TARGET gl3w)
-    add_library(gl3w 
-        "examples/libs/gl3w/GL/gl3w.h"
-        "examples/libs/gl3w/GL/gl3w.c"
-        "examples/libs/gl3w/GL/glcorearb.h")
-    target_include_directories(gl3w PUBLIC "examples/libs/gl3w/")
-    
-endif()
-
-target_link_libraries(imgui PUBLIC glfw gl3w)
+target_link_libraries(imgui PUBLIC glfw)
 
 if(IMGUI_BUILD_EXAMPLES)
     add_executable(imgui_example
